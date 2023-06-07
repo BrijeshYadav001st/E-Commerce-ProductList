@@ -65,12 +65,14 @@ const ProductList = () => {
 
   return (
     <div className='product-body'>
+      <div className='filter-form'>
       <div>
         <label>Filter by brand:</label>
         <input
           type="text"
           value={brandFilter}
           onChange={(e) => setBrandFilter(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -79,6 +81,7 @@ const ProductList = () => {
           type="text"
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -92,6 +95,7 @@ const ProductList = () => {
       </div>
       <button onClick={filterProducts}>Apply Filters</button>
       <button onClick={sortProducts}>Sort Products</button>
+      </div>
 
       <div className="product-list-container">
         {Array.isArray(filteredProducts) &&
@@ -111,7 +115,9 @@ const ProductList = () => {
       </div>
 
       <div className="cart-container">
-        <h2>Cart</h2>
+        <h3
+        >
+          Add Items Cart</h3>
 
         {cartItems.map((item) => (
           <div className="cart-item" key={item.id}>
@@ -126,7 +132,7 @@ const ProductList = () => {
         ))}
       </div>
 
-      <ToastContainer />
+      
     </div>
   );
 };
